@@ -1,0 +1,318 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+html {
+	font-size: 14px;
+	background-color: rgba(222, 222, 222, 0.4);
+}
+
+.visibility-hidden {
+	visibility: hidden;
+}
+
+.visibility-visible {
+	visibility: visible;
+}
+
+.display-none {
+	display: none;
+}
+
+
+.header {
+	position: fixed;
+	display: flex;
+	width: 100%;
+	background: #424242;
+	height: 300px;
+	text-align:center;
+	flex-direction:row;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.img-box {
+	vertical-align: middle;
+}
+
+.input-box {
+	text-align: initial;
+}
+
+.input-box p {
+	margin-top: 10px;
+	margin-bottom: 3px;
+}
+
+.input-box .body-height-label,
+.input-box .body-weight-label {
+	font-family: .AppleSystemUIFont;
+	font-size: 18px;
+	color: #FFD366;
+}
+
+.input-box .body-height-input,
+.input-box .body-weight-input {
+	background: rgba(255,255,255,0.18);
+	border: 2px solid #FFD366;
+	border-radius: 10px;
+	height: 40px;
+	width: 250px;
+	font-family: .SFNSDisplay;
+	font-size: 24px;
+	color: #FFFFFF;
+	padding-left: 0.5rem;
+}
+
+.input-box .body-height-input::-webkit-input-placeholder,
+.input-box .body-weight-input::-webkit-input-placeholder { /* Edge */
+  color: rgba(255,255,255,0.50);
+}
+
+.input-box .body-height-input::placeholder,
+.input-box .body-weight-input::placeholder { /* Edge */
+  color: rgba(255,255,255,0.50);
+}
+
+.input-box .body-height-input:-ms-input-placeholder,
+.input-box .body-weight-input:-ms-input-placeholder { /* Edge */
+  color: rgba(255,255,255,0.50);
+}
+
+.result-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.result-status-box {
+	margin-left: 1.5rem;
+}
+
+.result-status-box p {
+	font-family: .SFNSDisplay;
+	font-size: 32px;
+	color: #31BAF9;
+}
+
+
+.result.default:active {
+	background: #DEA921;
+	box-shadow: none;
+}
+
+.result.default:hover {
+	box-shadow: 0 1px 6px 3px rgba(255,195,49,0.64);
+	
+}
+
+.result.default {
+	cursor: pointer;
+	background: #FFD366;
+	height: 120px;
+	width: 120px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.result.default img {
+	visibility: hidden;
+}
+
+.result.active {
+	cursor: pointer;
+	position: relative;
+	background: initial;
+	display: flex;
+	height: 120px;
+	width: 120px;
+	border: 6px solid #86D73E;
+	border-radius: 50%;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.result.active img {
+	visibility: visible;
+}
+
+.result.active::after {
+	content: " ";
+	display: block;
+	border-radius: 50%;
+	border: 3px solid #424242;
+	height: 30px;
+	width:30px;
+	background-image: url("assets/icons_loop.png");
+	    position: absolute;
+	    bottom: 0px;
+		left: 88px;
+}
+
+.result.active.green::after {
+	background: #86D73E;
+}
+
+.result.active.blue::after {
+	background: #31BAF9;
+}
+
+.result.active.orange1::after {
+	background: #FF982D;
+}
+
+.result.active.orange2::after {
+	background: #FF6C02;
+}
+
+.result.active.red::after {
+	background: #FF1200;
+}
+
+.result.active img {
+	position: absolute;
+	bottom: 0px;
+	left: 99.5px;
+	bottom: 6.8px;
+	z-index: 100;
+}
+
+
+.result .result-label-default {
+	font-family: .PingFangTC-Regular;
+	font-size: 24px;
+	color: #424242;
+}
+
+.result .result-label-active {
+	font-family: .SFNSDisplay;
+	font-size: 32px;
+	color: #86D73F;
+}
+
+.result .result-label {
+	font-family: .AppleSystemUIFont;
+	font-size: 14px;
+	color: #86D73F;
+}
+
+.center {
+	height: 39%;
+	top: 42.5%;
+	width: 100%;
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	overflow-y:auto;
+	padding-bottom: 3rem;
+}
+
+.list-box {
+	
+	
+}
+
+.center .list-header p {
+	width: 100%;
+	font-family: .SFNSDisplay;
+	font-size: 24px;
+	color: #424242;
+	margin: 1.5rem;
+}
+
+.list {
+	list-style: none;
+	font-family: .SFNSDisplay;
+	font-size: 20px;
+	color: #4A4A4A;
+}
+
+.list li {
+	box-shadow:10px 5px 5px #7d7d7d;
+	/* display: inline-flex; */
+	width: 624px;
+	background: #FFFFFF;
+	margin-bottom: 1rem;
+	position: relative;
+	
+}
+
+.list li:hover {
+	left: -3px;
+	top: -3px;
+}
+
+.list li .main {
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+
+.lightBar {
+	box-shadow: 2px 0 3px 0 rgba(133,215,63,0.29);
+	height: 5.1rem;
+	position: absolute;
+	width: 0.5rem;
+}
+
+.list li .status {
+	font-family: .SFNSDisplay;
+	font-size: 20px;
+	color: #4A4A4A;
+}
+
+.list li .box {
+	display: flex;
+	align-items: center;
+}
+
+
+.list li .box .bmiName {
+	font-family: .AppleSystemUIFont;
+	font-size: 12px;
+	color: #424242;
+}
+
+.list li .box .value {
+	font-family: .SFNSDisplay;
+	font-size: 20px;
+	color: #4A4A4A;
+}
+
+.list li .del svg {
+	fill: rgba(0, 0, 0, 0.8);
+}
+
+.list li .del svg:hover {
+	fill: rgba(126, 126, 126, 0.8);
+}
+
+.footer {
+	/* z-index: 110; */
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #FFD366;
+}
+
+.footer .logo img {
+	padding-top: 1.285rem;
+	padding-bottom: 1.214rem;
+	width: 55px;
+	height: 55px;
+	filter: brightness(0.3);
+}

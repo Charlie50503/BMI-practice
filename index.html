@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<title>BMI計算</title>
+	</head>
+	<body>
+		<div class="header">
+			<div class="img-box">
+				<img src="assets/BMICLogo.png">
+			</div>
+			<div class="input-box">
+				<div>
+					<p for="body-height-input" class="body-height-label">身高 cm</p>
+					<input type="text" class="body-height-input" maxlength="6" name="body-height-input" id="BODY-HEIGHT-INPUT" placeholder="請輸入身高" value="" />
+				</div>
+				<div>
+					<p for="body-weight-input" class="body-weight-label" >體重 kg</p>
+					<input type="text" class="body-weight-input" maxlength="6" name="body-weight-input" id="BODY-WEIGHT-INPUT" placeholder="請輸入體重" value="" />
+				</div>
+
+			</div>
+			<div class="result-box ">
+				<div id="RESULT" class="result default">
+					<p class="result-label-default">看結果</p>
+					<div id="RESULT_BMI_BOX" class="display-none">
+						<p class="result-label-active"></p>
+						<p class="result-label">BMI</p>
+						<img class="" src="assets/icons_loop.png" >
+					</div>
+				</div>
+				<div class="result-status-box display-none">
+					<p class="result-status"></p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="center">
+			<div class="list-header">
+				<p>BMI紀錄</p>
+			</div>
+			<div class="list-box">
+				<ul class="list">
+					<li>
+						<div class="lightBar" id="red">
+						</div>
+						<div class="main">
+							<div class="status">重度肥胖</div>
+							<div class="box">
+								<div class="bmiName">BMI</div>
+								<div class="value">81.30</div>
+							</div>
+							<div class="box">
+								<div class="bmiName">weight</div>
+								<div class="value">123kg</div>
+							</div>
+							<div class="box">
+								<div class="bmiName">height</div>
+								<div class="value">123cm</div>
+							</div>
+							<div class="date">2020-8-22</div>
+							<div class="del">
+								<svg data-num="0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="logo">
+				<img src="assets/BMICLogo.png" >
+			</div>
+			
+		</div>
+		<script src="./js/main.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
