@@ -27,7 +27,7 @@ html {
 	display: flex;
 	width: 100%;
 	background: #424242;
-	height: 300px;
+	height: 35%;
 	text-align:center;
 	flex-direction:row;
 	align-items: center;
@@ -36,6 +36,11 @@ html {
 
 .img-box {
 	vertical-align: middle;
+}
+
+.img-box img {
+	height: 100%;
+	width: 100%;
 }
 
 .input-box {
@@ -179,7 +184,7 @@ html {
 	position: absolute;
 	bottom: 0px;
 	left: 99.5px;
-	bottom: 6.8px;
+	bottom: 7px;
 	z-index: 100;
 }
 
@@ -203,24 +208,29 @@ html {
 }
 
 .center {
-	height: 39%;
-	top: 42.5%;
+	height: 45%;
+	top: 35%;
 	width: 100%;
 	position: fixed;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	overflow-y:auto;
 	padding-bottom: 3rem;
 }
 
 .list-box {
-	
-	
+	overflow-y:auto;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	/* justify-content: center; */
+	flex-direction: column;
 }
 
 .center .list-header p {
+	/* position: relative; */
 	width: 100%;
 	font-family: .SFNSDisplay;
 	font-size: 24px;
@@ -316,3 +326,203 @@ html {
 	height: 55px;
 	filter: brightness(0.3);
 }
+
+@media (max-height: 675px) {
+  .header {
+  	position: relative;
+  	display: flex;
+  	background: #424242;
+  	height: 200px;
+  }
+  
+  
+  .img-box img {
+	  display: none;
+  }
+  
+  .center {
+  	top: 0;
+	height: 300px;
+	position: relative;
+  }
+  
+  .center .list-header p {
+  	font-size: 16px;
+  	margin: 0.8rem;
+  }
+  
+  .footer {
+  	display: none;
+  }
+  
+  
+}
+
+
+@media (max-width: 500px) {
+  
+  .header {
+  	position: absolute;
+  	display: flex;
+  	width: 100%;
+  	height: 41%;
+  	flex-direction:column;
+	justify-content: flex-start;
+  }
+   
+  .img-box img {
+	margin-top: 1.5rem;
+	margin-bottom: 0.5rem;
+  	height: 60px;
+  	width: 60px;
+  }
+  
+  .input-box .body-height-label,
+  .input-box .body-weight-label {
+  	font-size: 12px;
+  }
+  
+  .input-box .body-height-input,
+  .input-box .body-weight-input {
+  	height: 36px;
+  	font-size: 20px;
+  	padding-left: 0.5rem;
+  }
+  
+  
+  .result-status-box {
+  	margin-left: 1.5rem;
+  }
+  
+  .result-status-box p {
+  	font-size: 16px;
+  }
+  
+  
+  .result {
+	  margin-top: 15px;
+  }
+  
+  .result.default {
+  	height: 60px;
+  	width: 60px;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  }
+  
+  .result.active {
+  	cursor: pointer;
+  	position: relative;
+  	background: initial;
+  	display: flex;
+  	height: 60px;
+  	width: 60px;
+  	border: 3px solid #86D73E;
+  	border-radius: 50%;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+  }
+  
+  .result.active::after {
+  	border: 3px solid #424242;
+  	height: 20px;
+  	width:20px;
+  	position: absolute;
+  	bottom: -7px;
+  	left: 44px;
+  }
+  
+  .result.active img {
+  	position: absolute;
+	
+  	bottom: 0px;
+  	left: 50.5px;
+  	bottom: -4px;
+  	z-index: 100;
+  }
+  
+  
+  .result .result-label-default {
+  	font-size: 12px;
+  }
+  
+  .result .result-label-active {
+  	font-size: 12px;
+  }
+  
+  .result .result-label {
+  	font-size: 12px;
+  }
+  
+  .center {
+	width: 100%;
+	top: 330px;
+  	height: 330px;
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 3rem;
+  }
+  
+  .center .list-header p {
+  	font-size: 24px;
+  }
+  
+  .list li {
+  	box-shadow:5px 3px 2px #7d7d7d;
+  	width: 95%;
+  	margin-bottom: 1rem;
+  	position: relative;
+  	
+  }
+  
+  
+  .list li .main {
+  	padding: 0.5rem;
+  	display: flex;
+  	flex-direction: row;
+	flex-wrap: wrap;
+  	justify-content: space-between;
+	align-content: space-around;
+  }
+  
+  .lightBar {
+  	height: 5.2rem;
+  	width: 0.4rem;
+  }
+  
+  
+  .list li .status {
+  	font-size: 16px;
+  }
+  
+  .list li .box .bmiName {
+  	font-size: 11px;
+  }
+  
+  .list li .date {
+	font-size: 16px;  
+  }
+  
+  .list li .box .value {
+  	font-size: 16px;
+  }
+  
+  .list li .del svg {
+  	width: 12px;
+	height: 12px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
