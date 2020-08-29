@@ -86,8 +86,7 @@ function isColorName(BMI){
 }
 
 function isCheckInputValue(){
-	 if (isNaN(parseInt(bodyHeightInput.value)) || isNaN(parseInt(bodyWeightInput.value))) {
-
+	 if (isNaN(Number(bodyHeightInput.value)) || isNaN(Number(bodyWeightInput.value))) {
 	// if(Number.isNaN(parseInt(bodyHeightInput.value)) || Number.isNaN(parseInt(bodyWeightInput.value))){
 		alert('請輸入數字');
 		bodyHeightInput.value = '';
