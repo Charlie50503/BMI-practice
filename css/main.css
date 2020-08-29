@@ -422,8 +422,8 @@ html {
   	position: relative;
   	background: initial;
   	display: flex;
-  	height: 60px;
-  	width: 60px;
+  	height: 48px;
+  	width: 48px;
   	border: 3px solid #86D73E;
   	border-radius: 50%;
   	align-items: center;
@@ -433,19 +433,19 @@ html {
   
   .result.active::after {
   	border: 3px solid #424242;
-  	height: 20px;
-  	width:20px;
+  	height: 16px;
+  	width:16px;
   	position: absolute;
   	bottom: -7px;
-  	left: 44px;
+  	left: 32px;
   }
   
   .result.active img {
   	position: absolute;
-	
-  	bottom: 0px;
-  	left: 50.5px;
-  	bottom: -4px;
+	height: 10px;
+	width: 10px;
+  	left: 38px;
+  	bottom: -2px;
   	z-index: 100;
   }
   
