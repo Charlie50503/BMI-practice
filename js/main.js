@@ -18,14 +18,19 @@ showDataList()
 
 function showResult(){
 	var resultStatusBox = document.querySelector('.result-status-box');
-	resultStatusBox.classList.remove('display-none');
+	// resultStatusBox.classList.remove('display-none');
+	resultStatusBox.className = resultStatusBox.className.replace('display-none', "");
 	var resultBMIBox = document.querySelector('#RESULT_BMI_BOX');
-	resultBMIBox.classList.remove('display-none');
+	// resultBMIBox.classList.remove('display-none');
+	resultBMIBox.className = resultBMIBox.className.replace('display-none', "");
 	var resultLabelDefault = document.querySelector('.result-label-default');
-	resultLabelDefault.classList.add('display-none');
+	resultLabelDefault.className += ' '+'display-none'
+	// resultLabelDefault.classList.add('display-none');
 	var result = document.querySelector('#RESULT');
-	result.classList.add('active');
-	resultBMIBox.classList.remove('default');
+	// result.classList.add('active');
+	result.className += ' '+'active'
+	result.className = result.className.replace('default', "");
+	// resultBMIBox.classList.remove('default');
 }
 
 function clearInput(){
@@ -81,7 +86,9 @@ function isColorName(BMI){
 }
 
 function isCheckInputValue(){
-	if(Number.isNaN(parseInt(bodyHeightInput.value)) || Number.isNaN(parseInt(bodyWeightInput.value))){
+	 if (isNaN(parseInt(bodyHeightInput.value)) || isNaN(parseInt(bodyWeightInput.value))) {
+
+	// if(Number.isNaN(parseInt(bodyHeightInput.value)) || Number.isNaN(parseInt(bodyWeightInput.value))){
 		alert('請輸入數字');
 		bodyHeightInput.value = '';
 		bodyWeightInput.value = '';
@@ -152,10 +159,16 @@ function deleteItem(e){
 	
 	if(e.target.nodeName === 'path' || e.target.nodeName === 'svg'){
 		if(e.target.nodeName === 'path') {
-			dataList.splice(e.target.parentElement.dataset.num,1)
+			dataList.splice(e.target.getAttribute('data-num').num,1)
+			// dataList.splice(e.target.parentElement.dataset.num,1)
 			localStorage.setItem('dataList',JSON.stringify(dataList))
 		}else if(e.target.nodeName === 'svg') {
-			dataList.splice(e.target.dataset.num,1)
+			dataList.splice(e.target.getAttribute('data-num').num,1)
+			// if(e.target.dataset.num===undefined){
+			// 	dataList.splice(this.getAttribute('data-num').num,1)
+			// }else{
+			// 	dataList.splice(e.target.dataset.num,1)
+			// }
 			localStorage.setItem('dataList',JSON.stringify(dataList))
 			
 		}
@@ -168,29 +181,29 @@ function deleteItem(e){
 function showDataList(){
 	var innerHTML = ''
 	dataList.forEach(function(data,index){
-		innerHTML+=`<li>
-			<div class="lightBar" style="background: ${data.statusColor};">
-			</div>
-			<div class="main">
-				<div class="status">${data.status}</div>
-				<div class="box">
-					<div class="bmiName">BMI</div>
-					<div class="value">${data.BMI}</div>
-				</div>
-				<div class="box">
-					<div class="bmiName">weight</div>
-					<div class="value">${data.wieght}</div>
-				</div>
-				<div class="box">
-					<div class="bmiName">height</div>
-					<div class="value">${data.height}</div>
-				</div>
-				<div class="date">${data.day}</div>
-				<div class="del">
-					<svg data-num="${index}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
-				</div>
-			</div>
-		</li>`;
+		innerHTML+='<li>'
+		innerHTML+='<div class="lightBar" style="background: '+data.statusColor+';">'
+		innerHTML+='</div>'
+		innerHTML+='<div class="main">'
+		innerHTML+='<div class="status">'+data.status+'</div>'
+		innerHTML+='<div class="box">'
+		innerHTML+='<div class="bmiName">BMI</div>'
+		innerHTML+='<div class="value">'+data.BMI+'</div>'
+		innerHTML+='</div>'
+		innerHTML+='<div class="box">'
+		innerHTML+='<div class="bmiName">weight</div>'
+		innerHTML+='<div class="value">'+data.wieght+'</div>'
+		innerHTML+='</div>'
+		innerHTML+='<div class="box">'
+		innerHTML+='<div class="bmiName">height</div>'
+		innerHTML+='<div class="value">'+data.height+'</div>'
+		innerHTML+='</div>'	
+		innerHTML+='<div class="date">'+data.day+'</div>'
+		innerHTML+='<div class="del">'	
+		innerHTML+='<svg data-num="'+index+'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path data-num="'+index+'" d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>'
+		innerHTML+='</div>'
+		innerHTML+='</div>'	
+		innerHTML+='</li>'			
 		
 	})
 	list.innerHTML = innerHTML;
@@ -216,38 +229,57 @@ function showResultLabel(roundBMI,BMI){
 
 function changeResultActiveBorderColor(BMI){
 	var resultActive = document.querySelector('.result.active');
+	console.log("resultActive",resultActive)
 	var color = isStatusColor(BMI)
-	var str = `border: 6px solid ${color};`
-	resultActive.style = str 
+	console.log("color",color)
+	var str = 'border: 6px solid '+color+';'
+	// resultActive.textCss = str 
+	resultActive.setAttribute('style', str);
+	// console.log("resultActive.style",resultActive.style.border)
 }
 
 function changeResultActiveAfterBorderColor(BMI){
 	var resultActive = document.querySelector('.result.active');
 	var colorName = isColorName(BMI)
 	removeOldColor()
-	resultActive.classList.add(colorName);
+	// resultActive.classList.add(colorName);
+	resultActive.className += ' '+colorName
+	
 }
 
 function removeOldColor(){
 	var resultActive = document.querySelector('.result.active');
-	var oldColor = searchExistColor(resultActive.classList.value);
+	var value = resultActive.className
+	var oldColor = searchExistColor(value);
 	if(oldColor==='') return
-	resultActive.classList.remove(oldColor);
+	resultActive.className = resultActive.className.replace(oldColor, "");
+	// resultActive.classList.remove(oldColor);
 }
 
 function flexlightBarHeight(){
-	console.log("flexlightBarHeight")
 	var mainList = document.querySelectorAll('.list li .main');
 	var lightBarList = document.querySelectorAll('.list li .lightBar');
-	mainList.forEach((main,idx)=>{
+	for(var idx = 0; idx <mainList.length;idx++){
 		var lightBar = lightBarList[idx]
-		lightBar.style.height=main.clientHeight+'px';
-	})
+		lightBar.style.height=mainList[idx].clientHeight+'px';
+	}
+	
+	// mainList.forEach((main,idx)=>{
+	// 	var lightBar = lightBarList[idx]
+	// 	lightBar.style.height=main.clientHeight+'px';
+	// })
 }
 
 /*****************************************************************************************************/
 
 /**********************************************event*******************************************************/
+window.onresize = function(){
+	setTimeout(function(){
+		flexlightBarHeight()
+	},500)
+}
+
+
 result.addEventListener('click',function(e){
 	var checkInputValue = isCheckInputValue()
 	if(!checkInputValue) return
