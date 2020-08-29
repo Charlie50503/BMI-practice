@@ -194,6 +194,7 @@ function showDataList(){
 		
 	})
 	list.innerHTML = innerHTML;
+	flexlightBarHeight()
 }
 
 function showResultStatus(BMI){
@@ -232,6 +233,17 @@ function removeOldColor(){
 	var oldColor = searchExistColor(resultActive.classList.value);
 	if(oldColor==='') return
 	resultActive.classList.remove(oldColor);
+}
+
+function flexlightBarHeight(){
+	console.log("flexlightBarHeight")
+	debugger
+	var mainList = document.querySelectorAll('.list li .main');
+	var lightBarList = document.querySelectorAll('.list li .lightBar');
+	mainList.forEach((main,idx)=>{
+		const lightBar = lightBarList[idx]
+		lightBar.style.height=main.clientHeight+'px';
+	})
 }
 
 /*****************************************************************************************************/

@@ -327,7 +327,10 @@ html {
 	filter: brightness(0.3);
 }
 
-@media (max-height: 675px) {
+/* @media (max-height: 675px and mix-wiath:501px) { */
+@media screen and (max-height: 675px),
+@media screen and (mix-wiath:501px){
+  
   .header {
   	position: relative;
   	display: flex;
@@ -362,13 +365,15 @@ html {
 @media (max-width: 500px) {
   
   .header {
-  	position: absolute;
+  	position: relative;
   	display: flex;
   	width: 100%;
   	height: 41%;
   	flex-direction:column;
 	justify-content: flex-start;
   }
+  
+
    
   .img-box img {
 	margin-top: 1.5rem;
@@ -401,6 +406,7 @@ html {
   
   .result {
 	  margin-top: 15px;
+	  margin-bottom: 15px;
   }
   
   .result.default {
@@ -455,12 +461,12 @@ html {
   .result .result-label {
   	font-size: 12px;
   }
-  
+
   .center {
 	width: 100%;
-	top: 330px;
+	top: 0px;
   	height: 330px;
-	position: fixed;
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	padding-bottom: 3rem;
@@ -497,7 +503,7 @@ html {
   }
   
   .lightBar {
-  	height: 4.5rem;
+  	/* height: 4.5rem; */
   	width: 0.4rem;
   }
   
