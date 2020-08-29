@@ -237,11 +237,10 @@ function removeOldColor(){
 
 function flexlightBarHeight(){
 	console.log("flexlightBarHeight")
-	debugger
 	var mainList = document.querySelectorAll('.list li .main');
 	var lightBarList = document.querySelectorAll('.list li .lightBar');
 	mainList.forEach((main,idx)=>{
-		const lightBar = lightBarList[idx]
+		var lightBar = lightBarList[idx]
 		lightBar.style.height=main.clientHeight+'px';
 	})
 }
