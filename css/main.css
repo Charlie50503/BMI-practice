@@ -470,10 +470,18 @@ html {
   	font-size: 24px;
   }
   
+  .list {
+	  
+	/* display: flex; */
+	/* display: table-column; */
+	/* justify-content: center; */
+  }
+  
   .list li {
   	box-shadow:5px 3px 2px #7d7d7d;
-  	width: 95%;
+  	width: 93%;
   	margin-bottom: 1rem;
+	margin-left: 1rem;
   	position: relative;
   	
   }
@@ -489,7 +497,7 @@ html {
   }
   
   .lightBar {
-  	height: 5.2rem;
+  	height: 4.5rem;
   	width: 0.4rem;
   }
   
