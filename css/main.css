@@ -130,7 +130,8 @@ html {
 }
 
 .result.active {
-	cursor: pointer;
+	/* cursor: pointer; */
+	pointer-events: none;
 	position: relative;
 	background: initial;
 	display: flex;
@@ -141,13 +142,24 @@ html {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	
 }
 
 .result.active img {
 	visibility: visible;
+	cursor: pointer;
+}
+
+.result.active img:hover {
+	/* height: 30px; */
+	/* width:30px; */
+	/* border-radius: 50%; */
+	color: #31BAF9;
 }
 
 .result.active::after {
+	cursor: pointer;
+	pointer-events: auto;
 	content: " ";
 	display: block;
 	border-radius: 50%;
@@ -160,24 +172,47 @@ html {
 		left: 88px;
 }
 
+
 .result.active.green::after {
 	background: #86D73E;
+}
+
+.result.active.green:hover::after {
+	background: #5ad737;
 }
 
 .result.active.blue::after {
 	background: #31BAF9;
 }
 
+
+.result.active.blue:hover::after {
+	background: #4cc3f9;
+}
+
 .result.active.orange1::after {
 	background: #FF982D;
 }
+
+.result.active.orange2:hover::after {
+	background: #ffac27;
+}
+
 
 .result.active.orange2::after {
 	background: #FF6C02;
 }
 
+.result.active.orange2:hover::after {
+	background: #ff9d00;
+}
+
 .result.active.red::after {
 	background: #FF1200;
+}
+
+.result.active.red:hover::after {
+	background: #ff6701;
 }
 
 .result.active img {

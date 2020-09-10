@@ -33,6 +33,22 @@ function showResult(){
 	// resultBMIBox.classList.remove('default');
 }
 
+
+function returnDefault(){
+	var resultStatusBox = document.querySelector('.result-status-box');
+	resultStatusBox.className += ' display-none'
+	var resultBMIBox = document.querySelector('#RESULT_BMI_BOX');
+	resultBMIBox.className += ' display-none'
+	var resultLabelDefault = document.querySelector('.result-label-default');
+	resultLabelDefault.className = resultLabelDefault.className.replace('display-none', "");
+	// resultLabelDefault.classList.add('display-none');
+	var result = document.querySelector('#RESULT');
+	// result.classList.add('active');
+	result.className += ' '+'default'
+	result.className = result.className.replace('active', "");
+	// resultBMIBox.classList.remove('default');
+}
+
 function clearInput(){
 	bodyHeightInput.value = '';
 	bodyWeightInput.value = '';
@@ -227,6 +243,11 @@ function showResultLabel(roundBMI,BMI){
 	resultLabel.style.color = isStatusColor(BMI)
 }
 
+function resetBorderColor(){
+		var resultActive = document.querySelector('#RESULT');
+		resultActive.removeAttribute('style');
+}
+
 function changeResultActiveBorderColor(BMI){
 	var resultActive = document.querySelector('.result.active');
 	console.log("resultActive",resultActive)
@@ -281,6 +302,13 @@ window.onresize = function(){
 
 
 result.addEventListener('click',function(e){
+	console.log('ccc')
+	if((e.target.className.indexOf('default')===-1 && e.target.nodeName==='IMG') 
+		|| document.querySelector('.result.active')) {
+		returnDefault()
+		resetBorderColor()
+		return 
+	}
 	var checkInputValue = isCheckInputValue()
 	if(!checkInputValue) return
 	var BMI = bodyWeightInput.value/Math.pow(bodyHeightInput.value*0.01, 2);
