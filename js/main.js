@@ -171,25 +171,23 @@ function isStatusColor(BMI){
 }
 
 function deleteItem(e){
-
-	if(e.target.nodeName === 'path' || e.target.nodeName === 'svg'){
-		if(e.target.nodeName === 'path') {
-			dataList.splice(e.target.getAttribute('data-num'),1)
-			// dataList.splice(e.target.parentElement.dataset.num,1)
-			localStorage.setItem('dataList',JSON.stringify(dataList))
-		}else if(e.target.nodeName === 'svg') {
-			dataList.splice(e.target.getAttribute('data-num'),1)
-			// dataList.splice(e.target.getAttribute('data-num').num,1)
-			// if(e.target.dataset.num===undefined){
-			// 	dataList.splice(this.getAttribute('data-num').num,1)
-			// }else{
-			// 	dataList.splice(e.target.dataset.num,1)
-			// }
-			localStorage.setItem('dataList',JSON.stringify(dataList))
-			
-		}
-		console.log(dataList)
+	
+	if(e.target.nodeName !== 'path' && e.target.nodeName !== 'svg') return 
+	if(e.target.nodeName === 'path') {
+		dataList.splice(e.target.getAttribute('data-num'),1)
+		// dataList.splice(e.target.parentElement.dataset.num,1)
+		localStorage.setItem('dataList',JSON.stringify(dataList))
+	}else if(e.target.nodeName === 'svg') {
+		dataList.splice(e.target.getAttribute('data-num'),1)
+		// dataList.splice(e.target.getAttribute('data-num').num,1)
+		// if(e.target.dataset.num===undefined){
+		// 	dataList.splice(this.getAttribute('data-num').num,1)
+		// }else{
+		// 	dataList.splice(e.target.dataset.num,1)
+		// }
+		localStorage.setItem('dataList',JSON.stringify(dataList))
 	}
+	// console.log(dataList)
 	showDataList()
 	// createList()
 }
